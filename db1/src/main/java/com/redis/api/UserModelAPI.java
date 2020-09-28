@@ -53,4 +53,10 @@ public class UserModelAPI {
         return userService.getTeacherUnionMethod(id);
     }
 
+
+    @RequestMapping(value = "teacher/getTeacherTypeById")
+    public Teacher getTeacherTypeById(int id) {
+        return userService.getTeacherTypeById(id);
+    }
+
 }

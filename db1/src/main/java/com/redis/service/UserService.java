@@ -42,6 +42,13 @@ public class UserService {
     }
 
     public Teacher getTeacherUnionMethod(int id) {
+        teacherMapper.selectTeacherUnionById(id);
+        teacherMapper.selectTeacherUnionById(2);
+        System.out.println("2222222222222");
         return teacherMapper.selectTeacherUnionById(id);
+    }
+
+    public Teacher getTeacherTypeById(int id) {
+        return teacherMapper.selectTeacherTypeById(id);
     }
 }

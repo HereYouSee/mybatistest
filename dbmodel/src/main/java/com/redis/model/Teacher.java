@@ -13,6 +13,8 @@ public class Teacher {
 
     private int tage;
 
+    private int tPath;
+
     private List<UserModel> users;
 
 
