@@ -2,6 +2,8 @@ package com.redis.model;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class Teacher {
 
@@ -10,5 +12,8 @@ public class Teacher {
     private String tname;
 
     private int tage;
+
+    private List<UserModel> users;
+
 
 }

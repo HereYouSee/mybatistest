@@ -43,4 +43,4 @@ dbmodel/src/test/
 dbmodel/target/generated-sources/
 dbresponse/src/
 dbresponse/target/classes/
-src/
+.idea/
