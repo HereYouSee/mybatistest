@@ -1,3 +1,5 @@
 com\redis\config\RedisSerizableCompnent.class
 com\redis\api\RedisAPI.class
+com\redis\service\UserService.class
 com\redis\MainApplication.class
+com\redis\api\UserModelAPI.class
