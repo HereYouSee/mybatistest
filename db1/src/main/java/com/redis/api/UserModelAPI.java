@@ -1,5 +1,6 @@
 package com.redis.api;
 
+import com.redis.model.Teacher;
 import com.redis.model.UserModel;
 import com.redis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ public class UserModelAPI {
 
     @Autowired
     private UserService userService;
+
 
     @RequestMapping(value = "user/select")
     public UserModel get(int id) {
@@ -29,14 +31,26 @@ public class UserModelAPI {
         return userService.getUserByTwo(name,miaoshu);
     }
 
-    @RequestMapping(value = "user/getTeacher")
-    public UserModel getTeacher(int id) {
-        return userService.getTeacher(id);
-    }
+//    @RequestMapping(value = "user/getTeacher")
+//    public UserModel getTeacher(int id) {
+//        return userService.getTeacher(id);
+//    }
 
 
     @RequestMapping(value = "user/getTeacherUnion")
     public UserModel getTeacherUnion(int id) {
         return userService.getTeacherUnion(id);
     }
+
+    @RequestMapping(value = "teacher/getTeacher")
+    public Teacher getTeacher(int id) {
+        return userService.getTeacherById(id);
+    }
+
+
+    @RequestMapping(value = "teacher/getTeacherUnion")
+    public Teacher getTeacherUnionMethod(int id) {
+        return userService.getTeacherUnionMethod(id);
+    }
+
 }

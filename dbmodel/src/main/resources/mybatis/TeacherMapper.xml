@@ -2,11 +2,33 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.redis.mapper.UserModelMapper">
+<mapper namespace="com.redis.mapper.TeacherMapper">
 
-    <select id="selectTeacherById">
-
-
+    <select id="selectTeacherById" resultMap="teacherUser">
+      select * from teacher where tid = #{tid}
     </select>
 
+    <resultMap id="teacherUser" type="com.redis.model.Teacher">
+        <collection property="users" javaType="ArrayList" ofType="com.redis.model.UserModel" select="selectUserModel" column="tid">
+        </collection>
+    </resultMap>
+
+    <select id="selectUserModel" resultType="com.redis.model.UserModel">
+        select * from user_model where tid = #{tid}
+    </select>
+
+    <select id="selectTeacherUnionById" resultMap="tuUnion">
+        select um.id id,um.name name,um.miaoshu miaoshu,t.tid tid,t.tname tname,t.tage tage from user_model um,teacher t where um.tid=t.tid AND t.tid = #{tid}
+    </select>
+
+    <resultMap id="tuUnion" type="com.redis.model.Teacher">
+        <result column="tid" property="tid"/>
+        <result column="tname" property="tname"/>
+        <result column="tage" property="tage"/>
+        <collection property="users" ofType="com.redis.model.UserModel">
+            <result column="id" property="id"/>
+            <result column="name" property="name"/>
+            <result column="miaoshu" property="miaoshu"/>
+        </collection>
+    </resultMap>
 </mapper>

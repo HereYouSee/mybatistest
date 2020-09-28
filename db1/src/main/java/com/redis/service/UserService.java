@@ -1,6 +1,8 @@
 package com.redis.service;
 
+import com.redis.mapper.TeacherMapper;
 import com.redis.mapper.UserModelMapper;
+import com.redis.model.Teacher;
 import com.redis.model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,8 @@ public class UserService {
 
     @Autowired(required = false)
     UserModelMapper userModelMapper;
+    @Autowired(required = false)
+    TeacherMapper teacherMapper;
 
     public UserModel getUser(int id) {
         return userModelMapper.selectUser(id);
@@ -31,5 +35,13 @@ public class UserService {
 
     public UserModel getTeacherUnion(int id) {
         return userModelMapper.selectTeacherUnion(id);
+    }
+
+    public Teacher getTeacherById(int id) {
+        return teacherMapper.selectTeacherById(id);
+    }
+
+    public Teacher getTeacherUnionMethod(int id) {
+        return teacherMapper.selectTeacherUnionById(id);
     }
 }
