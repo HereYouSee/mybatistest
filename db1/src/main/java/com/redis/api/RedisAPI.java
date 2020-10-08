@@ -11,7 +11,7 @@ import java.util.Set;
 @RestController
 public class RedisAPI {
 
-    @Autowired
+    @Autowired(required = false)
     RedisTemplate redisTemplate;
 
     @RequestMapping(value = "test1/test")

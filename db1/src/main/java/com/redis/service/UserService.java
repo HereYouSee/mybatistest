@@ -51,4 +51,9 @@ public class UserService {
     public Teacher getTeacherTypeById(int id) {
         return teacherMapper.selectTeacherTypeById(id);
     }
+
+    public boolean saveUser(UserModel userModel) {
+        userModelMapper.insertUser(userModel);
+        return true;
+    }
 }

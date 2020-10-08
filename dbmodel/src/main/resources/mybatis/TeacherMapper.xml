@@ -9,7 +9,10 @@
     </select>
 
     <select id="selectTeacherTypeById" resultType="com.redis.model.Teacher">
-      select * from teacher where tid = #{tid}
+      select * from teacher
+       <where>
+           tid = #{tid}
+       </where>
     </select>
 
     <resultMap id="teacherUser" type="com.redis.model.Teacher">

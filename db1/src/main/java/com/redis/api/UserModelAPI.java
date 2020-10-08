@@ -26,6 +26,11 @@ public class UserModelAPI {
     }
 
 
+    @RequestMapping(value = "user/save")
+    public boolean saveUser(UserModel userModel) {
+        return userService.saveUser(userModel);
+    }
+
     @RequestMapping(value = "user/selecttwo")
     public UserModel get(String name,String miaoshu) {
         return userService.getUserByTwo(name,miaoshu);
